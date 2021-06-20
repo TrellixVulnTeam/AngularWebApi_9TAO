@@ -1,0 +1,52 @@
+<h4>Lista Klintów Restauracji</h4>
+<br>
+<div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+              <th scope="col">Numer Klienta</th>
+              <th scope="col">Imie</th>
+              <th scope="col">Rodzaj Płatnosci</th>
+              <th scope="col">Opcje</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let klienci of klient">
+                <td>{{klienci.nrKlienta}}</td>
+                <td>{{klienci.imie}}</td>
+                <td>{{klienci.rodzajP}}</td>
+                <td>
+                <button class="m btn btn-danger button-opcje" (click)="remove(klienci.nrKlienta)">
+                    Usuń
+                </button>
+                <button class="m btn btn-warning button-opcje" (click)="showEdit(klienci.nrKlienta)">
+                    Edytuj
+                </button>
+                </td>
+            </tr>
+          </tbody>
+      </table>
+      <button [routerLink]="['/add-klient']" class="m btn btn btn-success button-opcje2">
+        Dodaj Nowego Klienta
+      </button>
+      <div *ngIf="show">
+        <label>Podaj Imie</label>
+        <br>
+        <input type="text" id="Imie" [(ngModel)]="Klient.imie" required/>
+        <br>
+        <label>Wybierz Metodę Płatności</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+            </div>
+            <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="Klient.rodzajP" required>
+                <option *ngFor="let platnosc of platnosc">
+                    {{platnosc.rodzajP}}
+                </option>
+            </select>
+          </div>
+          <br>
+          <button class="m btn btn-warning " (click)="saveKlient()">
+            Edytuj
+        </button>
+      </div>
+</div>

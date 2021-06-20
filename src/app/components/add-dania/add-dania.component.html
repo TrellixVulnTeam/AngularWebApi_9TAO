@@ -1,0 +1,34 @@
+<h4>Dodaj Nowe Danie</h4>
+<div class="submit-form">
+    <div>
+        <div class="form-group">
+            <label>Nazwa Dania</label>
+            <input
+                type="text"
+                class="form-control"
+                required
+                [(ngModel)]="Danie.nazwa"
+            />
+        </div>
+        <label>Rodzaj Dania</label>
+        <div class="input-group-prepend">
+            <select class="custom-select" [(ngModel)]="Danie.rodzaj" id="inputGroupSelect01" required>
+                <option>Przystawka</option>
+                <option>Śniadanie</option>
+                <option>Obiad</option>
+                <option>Deser</option>
+                <option>Napój</option>
+            </select>
+        <div class="form-group">
+            <label>Cena Dania</label>
+            <input
+                type="number"
+                class="form-control"
+                required
+                [(ngModel)]="Danie.cena"
+                name="description"
+            />
+        </div>
+        <br>
+        <button (click)="saveDanie()" class="btn btn-success" >Dodaj Danie</button>
+    </div>

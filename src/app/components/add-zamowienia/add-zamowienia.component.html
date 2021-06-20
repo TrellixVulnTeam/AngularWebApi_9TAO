@@ -1,0 +1,27 @@
+<h4>Dodaj Nowe Zamówienie</h4>
+  <label>Klient</label>
+<div class="input-group">
+    <select class="custom-select" id="inputGroupSelect01" required [(ngModel)]="Zamowienie.nrKlienta">
+        <option>
+            Wybierz Klienta 
+        </option>
+        <option *ngFor="let klient of klient" [ngValue]="klient.nrKlienta" >
+            {{klient.nrKlienta}} {{klient.imie}}
+        </option>
+    </select>
+  </div>
+<label>Wybierz Danie</label>
+  <div class="input-group">
+    <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="Zamowienie.idD" required>
+        <option>
+            Wybierz Dania 
+        </option>
+        <option *ngFor="let danie of danie" [ngValue]="danie.idD">
+            {{danie.idD}} {{danie.nazwa}} {{danie.cena}} 
+        </option>
+    </select>
+  </div>
+  <br>
+  <button class="m btn btn btn-success button" (click)="dodajZamowienie()">
+    Dodaj Zamówienie
+  </button>

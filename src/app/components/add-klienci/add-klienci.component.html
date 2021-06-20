@@ -1,0 +1,18 @@
+<h4>Dodaj Nowego Klienta</h4>
+<div class="submit-form">
+    <div>
+        <label>Imie Klienta</label>
+        <div class="input-group mb-3">
+            <input type="text" required [(ngModel)]="Klient.imie"/>
+        </div>
+        <div class="input-group-prepend">
+            <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="Klient.rodzajP" required >
+                <option>Wybierz Rodzaj Płatności</option>
+                <option *ngFor="let platnosc of platnosc">
+                    {{platnosc.rodzajP}}
+                </option>
+            </select>
+    </div>
+    <br>
+    <button (click)="saveKlient()" class="btn btn-success" >Dodaj Danie</button>
+</div>

@@ -1,0 +1,41 @@
+<h4>Lista Zamówień</h4>
+      <br>
+      <table class="table table-bordered">
+        <thead>
+            <tr>
+              <th scope="col">Numer Zamówienia</th>
+              <th scope="col">Numer Klienta</th>
+              <th scope="col">Numer Dania</th>
+              <th scope="col">Nazwa Dania</th>
+              <th scope="col">Cena Dania</th>
+              <th scope="col">Status Zamówienia</th>
+              <th scope="col">Opcje</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let zamowienie of zamowienie">
+                <td>{{zamowienie.idZam}}</td>
+                <td>{{zamowienie.nrKlienta}} {{zamowienie.klient.imie}}</td>
+                <td>{{zamowienie.idD}}</td>
+                <td>{{zamowienie.dania.nazwa}}</td>
+                <td>{{zamowienie.dania.cena}} zł</td>
+                <td *ngIf="zamowienie.zakonczone == true">Zakończone</td>
+                <td *ngIf="zamowienie.zakonczone == false">W trakcie</td>
+                <td>
+                <button class="m btn btn btn-danger button-opcje button-opcje" (click)="remove(zamowienie.idZam)">
+                    Usuń
+                </button>
+                <button class="m btn btn btn-warning button-opcje button-opcje" (click)="showEdit(zamowienie.idZam, zamowienie.nrKlienta, zamowienie.idD)">
+                    Zamień Status
+                </button>
+                </td>
+            </tr>
+          </tbody>
+      </table>
+      <button [routerLink]="['/add-zamowienia']" class="m btn btn btn-success button">
+        Nowe Zamówienie
+      </button>
+        <h5 class ="label-name" *ngIf="show">Potwierdź Zmianę Statusu</h5>
+        <button *ngIf="show" class="m btn btn btn-warning" (click)="updateZamowienie()">
+          Zamień
+        </button>

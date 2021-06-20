@@ -1,0 +1,55 @@
+  <h4>Lista Dostępnych Dań w Restauracji</h4>
+      <br>
+      <table class="table table-bordered">
+        <thead>
+            <tr>
+              <th scope="col">Id Dania</th>
+              <th scope="col">Nazwa Dania</th>
+              <th scope="col">Rodzaj Dania</th>
+              <th scope="col">Cena Dania</th>
+              <th scope="col">Opcje</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let danie of danie">
+                <td>{{danie.idD}}</td>
+                <td>{{danie.nazwa}}</td>
+                <td>{{danie.rodzaj}}</td>
+                <td>{{danie.cena}} zł</td>
+                <td>
+                <button class="m btn btn btn-danger button-opcje" (click)="remove(danie.idD)">
+                    Usuń
+                </button>
+                <button class="m btn btn btn-warning button-opcje" (click)="showEdit(danie.idD)">
+                    Edytuj
+                </button>
+                </td>
+            </tr>
+          </tbody>
+      </table>
+        <button [routerLink]="['/add-dania']" class="m btn btn btn-success button-opcje2">
+            Dodaj Nowe Danie
+          </button>
+          <div *ngIf="show">
+            <label>Podaj Nazwe Dania</label>
+            <br>
+            <input type="text" id="nazwa" [(ngModel)]="Danie.nazwa" required/>
+            <div class="input-group-prepend">
+              <label>Wybierz Rodzaj Dania</label>
+              <br>
+              <select class="custom-select" [(ngModel)]="Danie.rodzaj" id="inputGroupSelect01">
+                <option>Przystawka</option>
+                <option>Śniadanie</option>
+                <option>Obiad</option>
+                <option>Deser</option>
+                <option>Napój</option>
+              </select>
+            </div>
+            <label>Podaj Cenę</label>
+            <br>
+            <input type="number" id="cena" [(ngModel)]="Danie.cena" required/>
+            <br>
+              <button class="m btn btn btn-warning button button-opcje2" (click)="saveDanie()">
+                Zmień
+              </button>
+          </div>

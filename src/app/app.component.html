@@ -1,0 +1,23 @@
+<div>
+  <nav class="navbar navbar-expand navbar-light bg-light">
+    <a href="" class="navbar-brand navbar-restauracja">
+      <img src="/assets/icon.png" width="50" height="50" alt=""> Restauracja</a>
+    <div class="navbar-nav mr-auto">
+      <li class="nav-items">
+        <a routerLink="platnosci" class="nav-link">Płatności</a>
+      </li>
+      <li class="nav-items">
+        <a routerLink="klienci" class="nav-link">Klienci</a>
+      </li>
+      <li class="nav-items">
+        <a routerLink="dania" class="nav-link">Dania</a>
+      </li>
+      <li class="nav-items">
+        <a routerLink="zamowienia" class="nav-link">Zamówienia</a>
+      </li>
+    </div>
+  </nav>
+  <div class="container mt-3">
+    <router-outlet></router-outlet>
+  </div>
+</div>
